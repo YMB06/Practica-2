@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "verbatimModuleSyntax": false,
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "dist",
+    "types": [
+      "jest"
+    ],
+    "strict": true
+  },
+  "include": [
+    "analyzer.ts",
+    "analyzer.test.ts"
+  ]
+}

@@ -1,4 +1,5 @@
-import { analyzeText } from "./analyzer";
+// @ts-nocheck
+import { analyzeText } from "./analyzer.js";
 
 describe("Pruebas de conteo de caracteres", () => {
   it("Texto vacío", () => {

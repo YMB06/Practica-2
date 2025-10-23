@@ -1,4 +1,5 @@
-// @ts-check
+// @ts-nocheck
+// 
 /** @type {import('@stryker-mutator/api/core').PartialStrykerOptions} */
 const config = {
   _comment: "This config was generated using 'stryker init'...",
