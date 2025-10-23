@@ -22,7 +22,7 @@ dist-*/
 
 # Jest / test output
 /coverage/
-jest.config.cjs
+
 jest.config.js
 /ts-jest/
 .jest/

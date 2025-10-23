@@ -7,20 +7,22 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "vite",
+    "stryker": "stryker run",
     "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@stryker-mutator/core": "^9.2.0",
-    "@stryker-mutator/jest-runner": "^9.2.0",
-    "@types/jest": "^30.0.0",
-    "@types/mocha": "^10.0.10",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.5",
-    "typescript": "^5.9.3",
-    "vite": "^5.1.0"
+    "@stryker-mutator/core": "^8.0.0",
+    "@stryker-mutator/jest-runner": "^8.0.0",
+    "@stryker-mutator/typescript-checker": "^8.0.0",
+    "@types/jest": "^29.5.11",
+    "@types/mocha": "^10.0.6",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
   },
   "type": "module"
 }

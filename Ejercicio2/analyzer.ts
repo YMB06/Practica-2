@@ -57,7 +57,9 @@ export function analyzeText(text: string): TextStatistics {
   const characterCount = text.length;
   const characterCountNoSpaces = text.replace(/\s/g, "").length;
 
-  const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+  // Nueva regex que maneja guiones y evita tokens vacíos
+  const words = text.toLowerCase()
+    .match(/[\p{L}\p{N}]+(?:-[\p{L}\p{N}]+)*/gu) || [];
   const wordCount = words.length;
 
   const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
@@ -70,16 +72,17 @@ export function analyzeText(text: string): TextStatistics {
   const averageWordLength = wordCount > 0 ? totalWordLength / wordCount : 0;
   const averageSentenceLength = sentenceCount > 0 ? wordCount / sentenceCount : 0;
 
+  // Mejorado el cálculo de frecuencia de palabras
   const wordFrequency = new Map<string, number>();
   for (const word of words) {
-    const count = wordFrequency.get(word) || 0;
-    wordFrequency.set(word, count + 1);
+    wordFrequency.set(word, (wordFrequency.get(word) || 0) + 1);
   }
 
+  // Modificado para devolver solo top 2 keywords ordenados por frecuencia y alfabéticamente
   const topKeywords = Array.from(wordFrequency.entries())
     .filter(([word]) => !stopWords.has(word))
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 2)
     .map(([word]) => word);
 
   const uniqueWordCount = wordFrequency.size;
